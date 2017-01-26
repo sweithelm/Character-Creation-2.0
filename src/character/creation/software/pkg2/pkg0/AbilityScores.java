@@ -53,6 +53,7 @@ public class AbilityScores extends Character {
     private static Label[] statsArrayLabel = new Label[6];
     
     static void AbilityScores(){
+        MainMenu.setNewScene(abilityScene);
         abilityMenu.setVgap(3);
         abilityMenu.setHgap(5);
         btFinalize.setPrefSize(90, 50);
@@ -403,6 +404,8 @@ public class AbilityScores extends Character {
             
             btYes.setOnAction (e -> {
                 setMods();
+                popUp.close();
+                Race.startRaceMenu();
             });
             
             btNo.setOnAction (e -> {

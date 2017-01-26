@@ -34,8 +34,6 @@ public class MainMenu extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        choice = "main";
-        
         //setup Main Menu
         
         GridPane mainMenu = new GridPane();
@@ -61,14 +59,12 @@ public class MainMenu extends Application {
         //start of button Actions
         
         btNewCharacter.setOnAction( e -> {
-            setNewScene(Race.raceScene);
-            Race.startRaceMenu();
+            Character Char = new Character();
+            NewCharacter.beginNewChar();
         });
         
         btItemSRD.setOnAction(e -> {
-            mainMenu.getChildren().clear();
-            setNewScene(AbilityScores.abilityScene);
-            AbilityScores.AbilityScores();
+            
         });
         
         btTutorial.setOnAction(e -> {
@@ -94,15 +90,11 @@ public class MainMenu extends Application {
     void introduction(GridPane window, String choice){
         Text introductionText = new Text();
         introductionText.setWrappingWidth(580);
-        
-        if(choice.equals("main")) {
-            introductionText.setText("Welcome to the Pathfinder Character Creation Software 2.0! "
-                    + "Choosing tutorial will walk you through steps and explain the rules as if you are new. "
-                    + "Choosing without the tutorial will skip Pathfinder rule descriptions. Enjoy!");
-            introductionText.setFont(Font.font("Old English Text MT", 18));
-            window.add(introductionText, 0, 0, 2, 1);
-            
-        }
+        introductionText.setText("Welcome to the Pathfinder Character Creation Software 2.0! "
+                + "Choosing tutorial will walk you through steps and explain the rules as if you are new. "
+                + "Choosing without the tutorial will skip Pathfinder rule descriptions. Enjoy!");
+        introductionText.setFont(Font.font("Old English Text MT", 18));
+        window.add(introductionText, 0, 0, 2, 1);
     }
     
     public static void setNewScene(Scene newScene){

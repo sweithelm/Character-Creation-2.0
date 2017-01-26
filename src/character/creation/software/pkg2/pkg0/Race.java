@@ -6,6 +6,7 @@
 package character.creation.software.pkg2.pkg0;
 
 import character.creation.software.pkg2.pkg0.Races.*;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -40,9 +41,11 @@ public class Race extends Character{
     public static Scene raceScene = new Scene(raceMenu, 600, 600);
     
     static void startRaceMenu(){
+        MainMenu.setNewScene(raceScene);
         ToggleGroup raceGroup = new ToggleGroup();
         raceMenu.setContent(rbMenu);
         rbMenu.setVgap(10);
+        rbMenu.setPadding(new Insets(12, 12, 12, 12));
         sortBox.getItems().addAll("All Races", new Separator(),"All Paizo Races", "Core", "Featured", "Uncommon", "Other",
                 new Separator(),"All 3rd Party Races", "Adamant Entertainment", "Alluria Publishing", "Dreamscarred Press", 
                 "Fat Goblin Games", "GUNGNIR Gamedev", "Jon Brazer Enterprises", "Little Red Goblin Games", "Kobold Press", 
@@ -57,6 +60,7 @@ public class Race extends Character{
             rbMenu.add(new Separator(), 0, (i*2) + 4, 5, 1);
         }
         rbMenu.add(sortBox, 0, 0, 5 ,1);
+        btContinue.setPrefSize(80, 30);
         rbMenu.add(btContinue, 5, 0);
         addToggleButtons();
         addIncScores(0, races.length);
